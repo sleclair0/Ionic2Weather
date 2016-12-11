@@ -10,7 +10,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Current Weather</ion-title>
+    <ion-title>{{pageTitle}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,8 +19,9 @@
   <ion-grid *ngIf="daily.data != undefined">
     <ion-row>
       <ion-col width-100>
-        <h1>{{currentData.temperature | number: '.0-0'}}&deg;</h1>
-        <p>{{currentData.summary}}</p>
+        <h1> {{currentData.temperature | number:'.0-0'}}&deg;</h1>
+        <p><ion-icon name="{{currentData.icon | weathericon}}"></ion-icon>
+      {{currentData.summary}}</p>
       </ion-col>
     </ion-row>
     <ion-row>

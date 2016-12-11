@@ -21748,3 +21748,49 @@ sub {
     padding-top: calc(16px + 20px);
   }
 }
+
+page-weather ion-content {
+  background: url(../assets/imgs/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  font-size: 24px;
+}
+
+page-weather ion-col, page-weather ion-col h1, page-weather ion-col p {
+  color: #fff;
+  text-align: center;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+page-weather h1 {
+  font-size: 72px;
+}
+
+page-weather p {
+  font-size: 36px;
+  margin-top: 0;
+}
+
+page-weather .opaque {
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+page-weather .opaque .toolbar-background {
+  background-color: rgba(248, 248, 248, 0.55);
+}
+
+page-weather .refresher-pulling-text, page-weather .refresher-refreshing-text {
+  color: #fff;
+}
+
+page-weather .refresher-pulling-icon {
+  color: #fff;
+}
+
+page-weather .spinner-circles circle {
+  fill: #fff;
+}
+
+page-weather .has-refresher > .scroll-content {
+  border-top-width: 0;
+}

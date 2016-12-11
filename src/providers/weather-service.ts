@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { CurrentLoc } from '../app/interfaces/current-loc';
 
 /*
   Generated class for the WeatherService provider.
@@ -16,13 +17,16 @@ export class WeatherService {
     console.log('Hello WeatherService Provider');
   }
 
-  load(){
+  load(currentLoc:CurrentLoc){
     if (this.data){
       return Promise.resolve(this.data);
     }
 
     return new Promise(resolve => {
-      this.http.get('assets/data/data.json')
+      //this.http.get('assets/data/data.json')
+      
+      //this.http.get('https://api.darksky.net/forecast/030090885e12d4ae1a44e52cbd643535/43.0742365,-89.381011899')
+      this.http.get('/api/forecast/'+currentLoc.lat + ',' + currentLoc.lon)
       .map(res => res.json())
       .subscribe(data => {
         this.data=data;
@@ -31,8 +35,9 @@ export class WeatherService {
     } );
   }
 
-  getWeather() {
-    return this.load().then(data => {
+  getWeather(currentLoc:CurrentLoc) {
+    this.data = null;
+    return this.load(currentLoc).then(data => {
       return data;
     });
   }
